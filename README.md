@@ -61,3 +61,63 @@ Here, you will see that you got the credentials and also you can download the CS
 ![alt text]?raw=true) 
 
 
+
+
+<h3>Step 2: Build an Infrastructure from code using Terraform</h3> 
+
+<h3>Step 3: Setup Sonarqube and Jenkins Server</h3> 
+
+<h4>Sonarqube</h4> Enter instance IP address and 9000 as port, by default the username and password is `admin`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a9.png?raw=true) 
+
+Now update the password
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a10.png?raw=true) 
+
+You see below is the homepage of Sonarqube
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a11.png?raw=true) 
+
+<h4>Now Let's move on to Jenkins</h4>
+
+<h4>Jenkins</h4> Enter instance IP address and 8080 as port
+
+To access it we need to provide first the Admin Password, in your terminal enter this `cat /var/lib/jenkins/secrets/initialAdminPassword`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a12.png?raw=true) 
+
+Choose `Install suggested plugins`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a14.png?raw=true) 
+
+Wait until completed
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a15.png?raw=true) 
+
+Create an Admin user Account
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a16.png?raw=true) 
+
+Your now at the homepage of Jenkins, Click on Manage Jenkins
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a17.png?raw=true) 
+
+<h5>Next thing to do is Install Plugins<h5>
+
+1. Jdk
+2. Owasp
+3. Sonar
+4. NodeJs
+5. Docker
+6. Prometheus metrics
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a18.png?raw=true) 
+
+
+
+
+
+
+
+
