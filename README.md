@@ -75,6 +75,136 @@ AWSCLI Installation Script
     unzip awscliv2.zip
     sudo ./aws/install
 
+<h3>Step 3: Setup Sonarqube and Jenkins Server</h3> 
+
+<h4>Sonarqube</h4> Enter instance IP address and 9000 as port, by default the username and password is `admin`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a9.png?raw=true) 
+
+Now update the password
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a10.png?raw=true) 
+
+You see below is the homepage of Sonarqube
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a11.png?raw=true) 
+
+
+<h4>Now Let's move on to Jenkins</h4>
+
+<h4>Jenkins</h4> Enter instance IP address and 8080 as port
+
+To access it we need to provide first the Admin Password
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a12.png?raw=true) 
+
+In your terminal enter this `cat /var/lib/jenkins/secrets/initialAdminPassword`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a14.png?raw=true) 
+
+Choose `Install suggested plugins`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a15.png?raw=true) 
+
+Wait until completed
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a16.png?raw=true) 
+
+
+Create an Admin user Account
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a17.png?raw=true) 
+
+Your now at the homepage of Jenkins, Click on Manage Jenkins
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a18.png?raw=true) 
+
+<h5>Next thing to do is Install Plugins<h5>
+
+1. Jdk
+2. Owasp
+3. Sonar
+4. NodeJs
+5. Docker
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a19.png?raw=true) 
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a20.png?raw=true) 
+
+
+
+<h3>Step 4: Configure the Credentials</h3> 
+<h4>Jenkins and Docker</h4>
+
+Go to your Sonarqube Server, click on `Administration` >>> `Projects` >>> `Token` >>> `Generate Token`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a21.png?raw=true) 
+
+Copy the token and go to `Manage Jenkins` >>> `Credentials` >>> `Add Credentials`
+ 
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a22.png?raw=true) 
+
+Next is for Docker, provide your username and password of your dockerhub
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a27.png?raw=true) 
+
+After that this is what it will look like
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a28.png?raw=true) 
+
+
+<h3>Step 5: Configure PlugIns</h3> 
+<h4>a. JDK</h4>
+
+a1. Click on add jdk and select installer adoptium.net
+
+a2. Choose `jdk17`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a29.png?raw=true) 
+
+<h4>b. Sonarqube Scanner</h4>
+
+b1. Click on add sonar scanner
+
+b2. Name it as `sonar-scanner`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a30.png?raw=true) 
+
+<h4>c. Docker</h4>
+
+c1. Click on add docker
+
+c2. Name it as `docker`
+
+c3. For the installer select download from `docker.com`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a32.png?raw=true) 
+
+
+<h4>d. NodeJS</h4>
+
+c1. Click on add nodeJS
+
+c2. Name it as `node16`
+
+c3. Select version `nodejs 16.2.0`
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a33.png?raw=true) 
+
+<h4>e. OWASP Dependency Check</h4>
+
+c1. Click on add Dependency Check Installation
+
+c2. Name it as `DP-Check`
+
+c3. Select `Install automatically`
+
+c4. Select `latest` for the version 
+
+![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a13.png?raw=true) 
+
+
+
 Prometheus Installation Script
 
       sudo useradd — system — no-create-home — shell /bin/false prometheus
@@ -111,57 +241,6 @@ Grafana Installation Script
     sudo apt-get update
     sudo apt-get -y install grafana
       
-<h3>Step 3: Setup Sonarqube and Jenkins Server</h3> 
-
-<h4>Sonarqube</h4> Enter instance IP address and 9000 as port, by default the username and password is `admin`
-
-![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a9.png?raw=true) 
-
-Now update the password
-
-![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a10.png?raw=true) 
-
-You see below is the homepage of Sonarqube
-
-![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a11.png?raw=true) 
-
-<h4>Now Let's move on to Jenkins</h4>
-
-<h4>Jenkins</h4> Enter instance IP address and 8080 as port
-
-To access it we need to provide first the Admin Password, in your terminal enter this `cat /var/lib/jenkins/secrets/initialAdminPassword`
-
-![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a12.png?raw=true) 
-
-Choose `Install suggested plugins`
-
-![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a14.png?raw=true) 
-
-Wait until completed
-
-![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a15.png?raw=true) 
-
-Create an Admin user Account
-
-![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a16.png?raw=true) 
-
-Your now at the homepage of Jenkins, Click on Manage Jenkins
-
-![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a17.png?raw=true) 
-
-<h5>Next thing to do is Install Plugins<h5>
-
-1. Jdk
-2. Owasp
-3. Sonar
-4. NodeJs
-5. Docker
-6. Prometheus metrics
-
-![alt text](https://github.com/macielo-bumalay/DevOps-Project-2/blob/main/img/a18.png?raw=true) 
-
-
-
 
 
 
